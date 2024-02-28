@@ -1,108 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
+@extends('_template_auth.layout')
+<title> Registar </title>
+@section('content')
 
-		<meta charset="UTF-8">
-		<meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="Description" content="Bootstrap Responsive Admin Web Dashboard HTML5 Template">
-		<meta name="Author" content="Spruko Technologies Private Limited">
-		<meta name="Keywords" content="admin,admin dashboard,admin dashboard template,admin panel template,admin template,admin theme,bootstrap 4 admin template,bootstrap 4 dashboard,bootstrap admin,bootstrap admin dashboard,bootstrap admin panel,bootstrap admin template,bootstrap admin theme,bootstrap dashboard,bootstrap form template,bootstrap panel,bootstrap ui kit,dashboard bootstrap 4,dashboard design,dashboard html,dashboard template,dashboard ui kit,envato templates,flat ui,html,html and css templates,html dashboard template,html5,jquery html,premium,premium quality,sidebar bootstrap 4,template admin bootstrap 4"/>
+	<!-- main-signin-wrapper -->
+	<div class="my-auto page page-h">
+		<div class="main-signin-wrapper">
+			<div class="main-card-signin d-md-flex">
+			<div class="wd-md-50p login d-none d-md-block page-signin-style p-5 text-white" >
+				<div class="my-auto authentication-pages">
+					<div>
+						<img src="../assets/img/brand/19.jpeg" class=" m-0 mb-4" alt="">
 
-		<!-- Title -->
-		<title> Azira -  Premium dashboard ui bootstrap rwd admin html5 template </title>
-
-		<!--- Favicon --->
-		<link rel="icon" href="../assets/img/brand/favicon.png" type="image/x-icon"/>
-
-		<!-- Bootstrap css -->
-		<link href="../assets/plugins/bootstrap/css/bootstrap.css" rel="stylesheet" id="style"/>
-
-		<!--- Icons css --->
-		<link href="../assets/css/icons.css" rel="stylesheet">
-
-		<!--- Style css --->
-		<link href="../assets/css/style.css" rel="stylesheet">
-		<link href="../assets/css/plugins.css" rel="stylesheet">
-
-		<!--- Animations css --->
-		<link href="../assets/css/animate.css" rel="stylesheet">
-
-	</head>
-	<body class="main-body bg-light  login-img">
-
-		<!-- Loader -->
-		<div id="global-loader"></div>
-		<!-- /Loader -->
-
-		<!-- page -->
-	<div class="page">
-		<!-- main-signin-wrapper -->
-		<div class="my-auto page page-h">
-			<div class="main-signin-wrapper">
-				<div class="wd-md-35p login d-none d-md-block page-signin-style p-4 text-white" >
-					<div class="my-auto authentication-pages">
-
-					
-						<h2 style="text-align:center">Register</h2>					
-						<h4>Silahkan Isi Dengan lengkap</h4>
-						<form action="/register" method="get"> 
-						<div class="form-group">
-								<label>Nama</label><input class="form-control" placeholder="Enter your Name" type="text" value="{{Session::get('name')}}">
-							</div>  
-							<div class="form-group">
-								<label>Nama Lengkap</label><input class="form-control" placeholder="Enter your Nama lengkap" type="text" value="{{Session::get('nama lengkap')}}">
-							</div>    
-							<div class="form-group">
-								<label>Alamat</label><input class="form-control" placeholder="Enter your Alamat" type="text" value="{{Session::get('Alamat')}}">
-							</div>           
-							<div class="form-group">
-								<label>Email</label><input class="form-control" placeholder="Enter your email" type="text" value="{{Session::get('email')}}">
-							</div>
-                      
-							<div class="form-group">
-								<label>Password</label> <input class="form-control" placeholder="Enter your password" type="password" value="">
-							</div>
-							<div class="form-group">
-								<label>Hak Akses</label>
-                                         <select name="namerole" id="f1" class="form-control select2" onchange="">
-                                           	<option value="">=== semua ===</option>
-                                            <option value="administrator" @if(request()->get('f1')==1) selected @endif>administrator</option>
-                                            <option value="petugas" @if(request()->get('f1')==2) selected @endif>petugas</option>
-                                        </select>
-									</div>
-									<button type="submit" class="float-right btn btn-primary pd-x-30 mg-e-5 mg-t-5">
-                            <i class='fa fa-save'></i> Simpan</button>
-							</div>
-						</form>
+						<h2 class="mb-5">Selamat Datang</h2>
+						<p class="mb-5">Untuk tetap terhubung dengan kami,
+							silahkan Daftar akun terlebih dahulu!!
+						</p>
 					</div>
-		<!-- page closed -->
-		<!-- /main-signin-wrapper -->
+				</div>
+			</div>
+			<div class="sign-up-body wd-md-50p">
+				<div class="main-signin-header">
+					<center><h2>Welcome!</h2></center>
+					<div class="px-0 col-12 mb-2">
+                        {{-- @include('_components.pesan') --}}
+                    </div>
+					<center><h4>Please Registar</h4></center>
+					<form  action="{{ route('registar')}}" method="POST">
+						@csrf
+						<div class="form-group">
+							<label>Username</label>
+							<input name="username" class="form-control" placeholder=" username"
+								type="text" required  value="{{ old('username') }}">
+						</div>
+						<div class="form-group">
+							<label>Email</label>
+							<input name="email" class="form-control" placeholder=" email"
+								type="email" required value="{{ old('email') }}">
+						</div>
+						<div class="form-group">
+							<label>Password</label>
+							<input name="password" class="form-control" placeholder=" password"
+								type="password" required autofocus>
+						</div>
+						<div class="form-group">
+							<label>Nama Lengkap</label>
+							<input name="namaLengkap" class="form-control" placeholder=" nama lengkap"
+								type="text" required  value="{{ old('namaLengkap') }}">
+						</div>
+						<div class="form-group">
+							<label>Alamat</label>
+							<input name="alamat" class="form-control" placeholder=" alamat"
+								type="komentar"  value="{{ old('alamat') }}">
+						</div>
+						<div class="form-group">
+							<label>Role</label>
+							<select class="form-control" name="role" >
+								<option value="">Pilih Hak Akses </option>
+								<option value="administrator"> Administrator</option>
+								<option value="petugas">Petugas</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label>verifikasi</label>
+							<select class="form-control" name="verifikasi" >
+								<option value="">Pilih</option>
+								<option value="sudah">Sudah</option>
+								<option value="belum">Belum</option>
+							</select>
+						</div>
+						<button a href="{{ route('login') }}" class="btn btn-primary btn-block" type="submit"><i class="fe fe-log-in"></i>Create Account</button>
+					</form>
+				</div>
+				<div class="main-signup-footer mg-t-10">
+					<p>Already have an account? <a href="{{ route('login') }}">Sign In</a></p>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<!-- page closed -->
 
-		<!--- JQuery min js --->
-		<script src="../assets/plugins/jquery/jquery.min.js"></script>
-
-		<!--- Bootstrap Bundle js --->
-		<script src="../assets/plugins/bootstrap/popper.min.js"></script>
-		<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-
-		<!--- Ionicons js --->
-		<script src="../assets/plugins/ionicons/ionicons.js"></script>
-
-		<!--- Moment js --->
-		<script src="../assets/plugins/moment/moment.js"></script>
-
-		<!--- Eva-icons js --->
-		<script src="../assets/js/eva-icons.min.js"></script>
-
-		<!--themecolor js-->
-		<script src="../assets/js/themecolor.js"></script>
-
-		<!--- Custom js --->
-		<script src="../assets/js/custom.js"></script>
-
-	</body>
-</html>
-
-
-  
+@endsection

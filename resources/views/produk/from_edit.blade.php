@@ -6,45 +6,45 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="main-content-label mg-b-5">
-									Form Input Data Penjualan
+									Form Edit Data Produk
 								</div>
 								<p class="mg-b-20">Harap untuk mengisi semua input</p>
-								@include('components.pesan')
 								<div class="pd-30 pd-sm-40 bg-gray-100">
-                                    <form action="{{ route('penjualan.store') }}" method="post">
+                                    <form action="{{ route('produk.update',  $dt->id) }}" method="post">
                                     @csrf
+                                    @method('put')
 									<div class="row row-xs align-items-center mg-b-20">
 										<div class="col-md-4">
-											<label class="form-label mg-b-0">Tanggal Penjualan</label>
+											<label class="form-label mg-b-0">Nama Produk</label>
 										</div>
 										<div class="col-md-8 mg-t-5 mg-md-t-0">
-											<input class="form-control" placeholder="Enter your Tanggal penjualan" name="tanggal_penjualan" type="date">
+											<input class="form-control" value="{{ $dt->nama_produk }}" placeholder="Enter your Nama Produk" name="nama_produk" type="text">
 										</div>
 									</div>
 									<div class="row row-xs align-items-center mg-b-20">
 										<div class="col-md-4">
-											<label class="form-label mg-b-0">Total Harga</label>
+											<label class="form-label mg-b-0">Harga</label>
 										</div>
 										<div class="col-md-8 mg-t-5 mg-md-t-0">
-											<input class="form-control" placeholder="Enter your Total Harga" name="total_harga" type="decimal">
+											<input class="form-control" value="{{ $dt->harga }}" placeholder="Enter your Harga" name="harga" type="number">
 										</div>
 									</div>
 									<div class="row row-xs align-items-center mg-b-20">
 										<div class="col-md-4">
-											<label class="form-label mg-b-0">Pelanggan Id</label>
+											<label class="form-label mg-b-0">Stok</label>
 										</div>
 										<div class="col-md-8 mg-t-5 mg-md-t-0">
-											<input class="form-control" placeholder="Enter your Pelanggan Id" name="pelanggan_id" type="text">
+											<input class="form-control" value="{{ $dt->stok }}" placeholder="Enter your Stok" name="stok" type="number">
 										</div>
 									</div>
 									<button class="btn btn-primary pd-x-30 mg-e-5 mg-t-5" type="submit">Simpan</button>
-									<a href="{{ route('penjualan.index') }}" class="btn btn-dark pd-x-30 mg-t-5"> << Back </a>
+									<a href="{{ route('produk.index') }}" class="btn btn-dark pd-x-30 mg-t-5"> << Back</a>
                                     </form>
 								</div>
 							</div>
 						</div>
+					</div>
                     </div>
-                </div>
 				<!-- /row -->
 
 @endsection

@@ -13,18 +13,17 @@
         </nav>
     </div>
 </div>
-<!-- /breadcrumb -->
 <!-- Row -->
 <div class="row row-sm">
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header pb-0">
                 <div class="d-flex my-auto btn-list justify-content-end">
-                    <!---------route create buku ------>
+                    <!---------route create produk ------>
                     <a href="{{ route('produk.create') }}" class="btn btn-primary">Tambah Data</a>
-                    <a href="" class="btn btn-danger">Export PDF</a>
-
+                    <a href="{{ route('export_pdf_produk') }}" class="btn btn-danger">Export PDF</a>
             </div>
+            @include('components.pesan')
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table border-top-0 table-bordered text-nowrap border-bottom" id="basic-datatable">
@@ -38,7 +37,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($pelanggan as $dt)
+                            @foreach ($produk as $dt)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{ $dt->nama_produk }}</td>
@@ -47,8 +46,8 @@
                                 <td>
                                     <a href="{{ route('produk.edit', $dt->id) }}" class="btn btn-sm btn-warning">Edit</a>
                                     <form onsubmit="return confirm('Apakah Anda Yakin Akan Menghapus Data Ini?')"action="{{ route('produk.destroy',$dt->id)}}" method="post" class="d-inline">
-                                        @csrf @method('DELETE')
-                                        <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                    @csrf @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -59,6 +58,5 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 @endsection

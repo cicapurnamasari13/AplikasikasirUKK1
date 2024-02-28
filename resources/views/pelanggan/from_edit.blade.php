@@ -21,7 +21,7 @@
 						<div class="card">
 							<div class="card-body">
 								<div class="main-content-label mg-b-5">
-									Form Edit Data Buku
+									Form Edit Data Pelanggan
 								</div>
 								<div class="pd-30 pd-sm-40 bg-gray-100">
 								<form action="{{ route('pelanggan.update',$dt->id)}}" method="post">

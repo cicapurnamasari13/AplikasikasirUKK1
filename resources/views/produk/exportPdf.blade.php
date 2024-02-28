@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Laporan Data Pelanggan</title>
+    <title>Laporan Data Produk</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -21,7 +21,7 @@
         }
     </style>
     <center>
-        <h4>DATA PELANGGAN</h4>
+        <h4>DATA PRODUK</h4>
         <p>Waktu Export : {{ date('d-m-Y H:i') }}</p> <!-- SET KAPAN USER EXPORT -->
     </center>
 
@@ -29,10 +29,10 @@
         <thead>
         <tr>
             <th>No</th>
-            <th>Tanggal Penjualan</th>
-            <th>Total Harga</th>
-            <th>Pelanggan Id</th>
-        </tr>
+            <th>Nama Produk</th>
+            <th>Harga</th>
+            <th>Stok</th>
+    </tr>
         </thead>
         <tbody>
             @php $no=1; @endphp <!-- MEMBUAT VAR $NO DENGAN NILAI 1 -->
@@ -41,15 +41,13 @@
                     <!-- MEMBUAT PERULANGAN UNTUK MENAMPILKAN HASIL DARI DB -->
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-					    <td>{{ $dt->tanggal_penjualan }}</td>
-				        <td>{{ $dt->total_harga }}</td>
-					    <td>{{ $dt->pelanggan_id }}</td>
+                        <td>{{ $dt->nama_produk }}</td>
+                        <td>{{ $dt->harga }}</td>
+                        <td>{{ $dt->stok }}</td>
                     </tr>
                 @endforeach
             @endif
         </tbody>
     </table>
-
 </body>
-
 </html>

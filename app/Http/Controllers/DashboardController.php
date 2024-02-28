@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\DetailPenjualan;
 
-class DetailPenjualanController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class DetailPenjualanController extends Controller
      */
     public function index()
     {
-        return view('detail_penjualan.index');
+        return view('dashboard.index');
     }
 
     /**
@@ -24,7 +23,7 @@ class DetailPenjualanController extends Controller
      */
     public function create()
     {
-        return view('detail_penjualan.from_create');
+        //
     }
 
     /**
@@ -35,28 +34,7 @@ class DetailPenjualanController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'penjualan_id' => 'required',
-            'produk_id' => 'required',
-            'jumlah_produk' => 'required',
-            'subtotal' => 'required',
-        ],
-        [
-            'penjualan_id.required' => 'nama wajib diisi',
-            'produk_id.required' => 'total harga wajib diisi',
-            'jumlah_produk.required' => 'nama pelanggan wajib diisi',
-            'subtotal.required' => 'nama pelanggan wajib diisi',
-        ]
-        );
-        $detail = [
-            'penjualan_id' => $request->penjualan_id,
-            'produk_id' => $request->produk_id,
-            'jumlah_produk' => $request->jumlah_produk,
-            'subtotal' => $request->subtotal,
-        ];
-
-        DetailPenjualan::create($detail);
-        return redirect()->route('detail_penjualan.index')->with('success', 'Data Berhasil Disimpan');
+        //
     }
 
     /**

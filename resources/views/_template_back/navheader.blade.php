@@ -56,8 +56,8 @@
 
                             <div class="dropdown-menu">
                                 <div class="main-header-profile header-img">
-                                    <div class="main-img-user"><img alt="" src="{{ asset('assets') }}/img/faces/19.jpeg"></div>
-                                    <h6>Terimakasih</h6>
+                                    <div class="main-img-user"><img alt="" src="{{ asset('assets') }}/img/faces/20.jpg"></div>
+                                    <h6>CICA PURNAMASARI</h6>
                                 </div>
                                 <a class="dropdown-item" href="{{ route('logout') }}"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
                             </div>

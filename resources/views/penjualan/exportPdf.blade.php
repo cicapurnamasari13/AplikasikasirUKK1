@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Laporan Data Pelanggan</title>
+    <title>Laporan Data Penjualan</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
@@ -21,7 +21,7 @@
         }
     </style>
     <center>
-        <h4>DATA PELANGGAN</h4>
+        <h4>DATA PENJUALAN</h4>
         <p>Waktu Export : {{ date('d-m-Y H:i') }}</p> <!-- SET KAPAN USER EXPORT -->
     </center>
 

@@ -20,11 +20,12 @@
         <div class="card">
             <div class="card-header pb-0">
                 <div class="d-flex my-auto btn-list justify-content-end">
-                    <!---------route create buku ------>
+                    <!---------route create pelanggan ------>
                     <a href="{{ route('pelanggan.create') }}" class="btn btn-primary">Tambah Data</a>
                     <a href="{{ route('export_pdf_pelanggan') }}" class="btn btn-danger">Export PDF</a>
 
             </div>
+            @include('components.pesan')
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table border-top-0 table-bordered text-nowrap border-bottom" id="basic-datatable">
